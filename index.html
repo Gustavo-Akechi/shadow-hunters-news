@@ -2,261 +2,498 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-  <title>Shadow Hunters | Jornal Oficial</title>
-  <meta name="description" content="Portal de notícias e comunicados oficiais dos Shadow Hunters.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0b0d">
+<title>The Shadowhunter Chronicle</title>
+<meta name="description" content="Registros, solicitações e comunicados dos Shadow Hunters.">
 
-  <style>
-    :root {
-      --bg: #111111;
-      --panel: #1b1919;
-      --wine: #721e2b;
-      --gold: #c5a56a;
-      --text: #eee8df;
-      --muted: #aaa19a;
-      --line: #393132;
-    }
+<style>
+:root {
+  --bg: #0a0b0d;
+  --panel: #111317;
+  --panel2: #17191d;
+  --silver: #d1d0ca;
+  --muted: #85878c;
+  --red: #76242d;
+  --red-light: #a4414a;
+  --line: #34363a;
+  --gold: #a8956b;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
-    }
+html { scroll-behavior: smooth; }
 
-    a { color: inherit; text-decoration: none; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, #242326 0%, transparent 50%),
+    var(--bg);
+  color: var(--silver);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
 
-    .topline {
-      height: 4px;
-      background: var(--wine);
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .12;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      115deg, transparent 0, transparent 80px,
+      #68666a 81px, transparent 82px
+    );
+}
 
-    header {
-      text-align: center;
-      padding: 38px 20px 26px;
-      border-bottom: 1px solid var(--line);
-    }
+a { color: inherit; text-decoration: none; }
 
-    .eyebrow {
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
+.topline {
+  height: 3px;
+  background: linear-gradient(
+    90deg, transparent, var(--red), #b5a68a, var(--red), transparent
+  );
+}
 
-    header h1 {
-      margin: 12px 0 0;
-      font-size: clamp(30px, 6vw, 55px);
-      letter-spacing: 3px;
-      line-height: 1.2;
-    }
+header {
+  text-align: center;
+  padding: 54px 20px 34px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
 
-    header h1 span { color: var(--gold); }
+.rune {
+  color: #a7a9a9;
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
+  user-select: none;
+  pointer-events: none;
+}
 
-    header p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.header-rune {
+  position: absolute;
+  font-size: 125px;
+  opacity: .08;
+  top: 0;
+  line-height: 1;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 26px;
-      padding: 14px;
-      border-bottom: 1px solid var(--line);
-      font: 12px Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+.header-rune.left { left: 8%; }
+.header-rune.right { right: 8%; }
 
-    nav a:hover { color: var(--gold); }
+.eyebrow, .label, .meta, nav, .edition, .small-label {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 38px 22px;
-    }
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+}
 
-    .section-title {
-      color: var(--gold);
-      font: 12px Arial, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
-      margin-bottom: 24px;
-    }
+header h1 {
+  margin: 15px 0 8px;
+  font-size: clamp(28px, 5.4vw, 58px);
+  font-weight: normal;
+  letter-spacing: 4px;
+  line-height: 1.2;
+}
 
-    .featured {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--wine);
-      padding: clamp(22px, 5vw, 42px);
-      margin-bottom: 42px;
-    }
+header h1 span {
+  color: #f0ede6;
+}
 
-    .category {
-      color: var(--gold);
-      font: 11px Arial, sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+}
 
-    .featured h2 {
-      font-size: clamp(25px, 4vw, 39px);
-      line-height: 1.25;
-      margin: 14px 0;
-    }
+.header-mark {
+  color: var(--red-light);
+  font-size: 23px;
+  margin-top: 12px;
+}
 
-    .date {
-      color: var(--muted);
-      font: 12px Arial, sans-serif;
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 15px 12px;
+  background: #0d0e10;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
 
-    .featured p { color: #d0c8c1; }
+nav a { transition: color .2s; }
+nav a:hover { color: #d3b995; }
 
-    .button {
-      display: inline-block;
-      background: var(--wine);
-      padding: 11px 18px;
-      margin-top: 10px;
-      font: 12px Arial, sans-serif;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+main {
+  width: min(1060px, 100%);
+  margin: auto;
+  padding: 42px 22px 70px;
+}
 
-    .button:hover { background: #8d2939; }
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  color: var(--gold);
+  font: 10px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
+.section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
 
-    .news-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 24px;
-    }
+.manifesto {
+  border: 1px solid #383437;
+  border-left: 3px solid var(--red);
+  background:
+    linear-gradient(110deg, rgba(118,36,45,.12), transparent 60%),
+    var(--panel);
+  padding: 28px;
+  margin-bottom: 45px;
+  position: relative;
+}
 
-    .news-card h3 {
-      font-size: 22px;
-      line-height: 1.35;
-      margin: 12px 0;
-    }
+.manifesto .watermark {
+  position: absolute;
+  right: 18px;
+  top: 5px;
+  font-size: 76px;
+  opacity: .09;
+}
 
-    .news-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+.manifesto .label {
+  color: var(--red-light);
+  font-size: 10px;
+}
 
-    .empty {
-      color: var(--muted);
-      padding: 20px 0;
-    }
+.manifesto h2 {
+  font-size: clamp(23px, 4vw, 32px);
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 10px 0;
+}
 
-    footer {
-      text-align: center;
-      border-top: 1px solid var(--line);
-      padding: 28px 20px;
-      color: var(--muted);
-      font: 11px Arial, sans-serif;
-      letter-spacing: 1px;
-    }
+.manifesto p {
+  color: #a7a6a3;
+  max-width: 650px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
 
-    footer strong { color: var(--gold); }
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
 
-    @media (max-width: 500px) {
-      nav { gap: 14px; }
-      main { padding: 26px 16px; }
-    }
-  </style>
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 310px;
+  padding: 24px 20px 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #191a1e, #101114 70%);
+  border: 1px solid #343438;
+  transition: transform .25s, border-color .25s, background .25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #785054;
+  background: linear-gradient(145deg, #201a1d, #111114 70%);
+}
+
+.card::after {
+  content: attr(data-rune);
+  position: absolute;
+  right: -2px;
+  bottom: 28px;
+  color: #b5b1a9;
+  opacity: .055;
+  font-size: 100px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.number {
+  color: var(--red-light);
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.rune-small {
+  color: #9a8a6f;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.category {
+  color: var(--gold);
+  font: 9px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-top: 23px;
+}
+
+.card h3 {
+  color: #e5e1da;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 1.22;
+  margin: 9px 0 12px;
+}
+
+.card p {
+  color: #99999c;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.card details {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.card summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: #d5c7ad;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #755057;
+  padding: 8px 0;
+}
+
+.card summary::-webkit-details-marker { display: none; }
+
+.card summary::after {
+  content: "+";
+  color: var(--red-light);
+  font-size: 17px;
+}
+
+.card details[open] summary::after { content: "−"; }
+
+.details-text {
+  color: #aaa8a5;
+  font-size: 13px;
+  padding-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.details-text p { margin: 0; }
+
+.closing {
+  margin-top: 48px;
+  padding: 25px 12px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.closing .sigil {
+  color: var(--red-light);
+  font-size: 25px;
+  margin-bottom: 6px;
+}
+
+.closing p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 16px 35px;
+  color: #696b70;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+footer strong {
+  color: #aaa49a;
+  font-weight: normal;
+}
+
+@media (max-width: 760px) {
+  .news-grid { grid-template-columns: 1fr; }
+  .card { min-height: 255px; }
+  .header-rune { font-size: 85px; }
+  .header-rune.left { left: -5px; }
+  .header-rune.right { right: -5px; }
+  nav { gap: 15px; }
+  main { padding: 28px 16px 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+}
+</style>
 </head>
 
 <body>
-  <div class="topline"></div>
+<div class="topline"></div>
 
-  <header>
-    <div class="eyebrow">Informação • Honra • Legado</div>
-    <h1>SHADOW <span>HUNTERS</span></h1>
-    <p>Jornal oficial • Notícias e comunicados</p>
-  </header>
+<header>
+  <div class="rune header-rune left" aria-hidden="true">ᛉ</div>
+  <div class="rune header-rune right" aria-hidden="true">ᛟ</div>
 
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#noticias">Notícias</a>
-    <a href="#diplomacia">Diplomacia</a>
-    <a href="#comunicados">Comunicados</a>
-  </nav>
+  <div class="eyebrow">Arquivo dos Nephilim · Acesso institucional</div>
+  <h1>THE <span>SHADOWHUNTER</span><br>CHRONICLE</h1>
+  <div class="subtitle">Registros · Poder · Dever</div>
+  <div class="header-mark" aria-hidden="true">✧ ━━━━━ ◈ ━━━━━ ✧</div>
+</header>
 
-  <main id="inicio">
-    <div class="section-title">◆ Edição oficial</div>
+<nav aria-label="Navegação principal">
+  <a href="#inicio">O Instituto</a>
+  <a href="#registros">Registros</a>
+  <a href="#solicitacoes">Solicitações</a>
+</nav>
 
-    <section class="featured">
-      <div class="category">Bem-vindo ao portal</div>
-      <h2>As notícias dos Shadow Hunters começam aqui.</h2>
-      <div class="date">PORTAL OFICIAL</div>
-      <p>
-        Este é o canal de informação dos Shadow Hunters.
-        Aqui serão publicados comunicados oficiais, registros
-        diplomáticos, eventos e notícias relevantes da organização.
-      </p>
-      <a class="button" href="#noticias">Explorar notícias</a>
-    </section>
+<main id="inicio">
 
-    <section id="noticias">
-      <div class="section-title">Últimas publicações</div>
+  <div class="section-heading">Registro central</div>
 
-      <div class="news-grid">
+  <section class="manifesto">
+    <div class="rune watermark" aria-hidden="true">ᛉ</div>
+    <div class="label">✦ Aos membros da Clave</div>
+    <h2>O que é registrado, permanece.</h2>
+    <p>
+      Este arquivo reúne anúncios, manifestações de poder e solicitações
+      destinadas aos Shadow Hunters. Consulte os registros abaixo para
+      conhecer as atualizações e os procedimentos disponíveis.
+    </p>
+  </section>
 
-        <!-- MODELO DE NOTÍCIA: copie este bloco para adicionar notícias.
-        <article class="news-card" id="diplomacia">
-          <div class="category">Diplomacia</div>
-          <h3>Título da notícia</h3>
-          <div class="date">11 OUTUBRO 2026</div>
-          <p>Escreva aqui o resumo da notícia.</p>
-          <a class="button" href="noticias/minha-noticia.html">
-            Ler notícia
-          </a>
-        </article>
-        -->
+  <section id="registros">
+    <div class="section-heading">Publicações e registros</div>
 
-        <article class="news-card" id="comunicados">
-          <div class="category">Comunicados</div>
-          <h3>Em breve: comunicados oficiais</h3>
-          <div class="date">PORTAL OFICIAL</div>
-          <p>
-            Os comunicados da organização serão publicados
-            nesta seção assim que o portal entrar em funcionamento.
-          </p>
-        </article>
+    <div class="news-grid">
 
-        <article class="news-card">
-          <div class="category">Diplomacia</div>
-          <h3>Um espaço para relações diplomáticas</h3>
-          <div class="date">PORTAL OFICIAL</div>
-          <p>
-            Registros de reuniões, tratados, negociações e
-            relações entre organizações poderão ser apresentados aqui.
-          </p>
-        </article>
+      <article class="card" data-rune="ᛉ">
+        <div class="card-top">
+          <span class="number">REGISTRO Nº 001</span>
+          <span class="rune rune-small" aria-hidden="true">ᛉ</span>
+        </div>
+        <div class="category">Evolução · Equipamento</div>
+        <h3>Asas Novas</h3>
+        <p>
+          Um novo capítulo se abre. Consulte as informações referentes
+          às novas asas, aos requisitos e às orientações para solicitação.
+        </p>
+        <details>
+          <summary>Consultar registro</summary>
+          <div class="details-text">
+            <p>
+              As informações completas sobre a aquisição das asas,
+              os critérios de aprovação e os procedimentos necessários
+              serão divulgadas neste espaço.
+            </p>
+          </div>
+        </details>
+      </article>
 
-      </div>
-    </section>
-  </main>
+      <article class="card" data-rune="ᛏ">
+        <div class="card-top">
+          <span class="number">REGISTRO Nº 002</span>
+          <span class="rune rune-small" aria-hidden="true">ᛏ</span>
+        </div>
+        <div class="category">Desenvolvimento · Poderes</div>
+        <h3>Novo Poder</h3>
+        <p>
+          Novas possibilidades exigem responsabilidade.
+          Consulte as orientações sobre a aquisição e o desenvolvimento
+          de habilidades.
+        </p>
+        <details>
+          <summary>Consultar registro</summary>
+          <div class="details-text">
+            <p>
+              Utilize este registro para apresentar os poderes disponíveis,
+              os requisitos necessários e as regras de aprovação
+              definidas pela organização.
+            </p>
+          </div>
+        </details>
+      </article>
 
-  <footer>
-    <strong>SHADOW HUNTERS</strong>
-    <p>Portal de notícias e comunicados oficiais</p>
-    <p>Conteúdo sujeito às regras e à narrativa do servidor de RP.</p>
-  </footer>
+      <article class="card" id="solicitacoes" data-rune="ᛟ">
+        <div class="card-top">
+          <span class="number">REGISTRO Nº 003</span>
+          <span class="rune rune-small" aria-hidden="true">ᛟ</span>
+        </div>
+        <div class="category">Administração · Protocolo</div>
+        <h3>Demais Solicitações</h3>
+        <p>
+          Para assuntos que não se enquadram nos registros anteriores,
+          consulte o canal de solicitações e os procedimentos aplicáveis.
+        </p>
+        <details>
+          <summary>Consultar registro</summary>
+          <div class="details-text">
+            <p>
+              Inclua aqui as instruções para solicitações adicionais,
+              documentos necessários, canal de atendimento e critérios
+              de análise.
+            </p>
+          </div>
+        </details>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="sigil" aria-hidden="true">✧ ◈ ✧</div>
+    <p>Que a marca do Anjo guie aqueles que protegem o mundo.</p>
+  </section>
+
+</main>
+
+<footer>
+  <strong>The Shadowhunter Chronicle</strong>
+  <p>Arquivo informativo da organização · Universo de RP</p>
+</footer>
+
 </body>
 </html>
