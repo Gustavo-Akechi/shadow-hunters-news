@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>Shadow Hunters | Jornal Oficial</title>
+  <meta name="description" content="Portal de notícias e comunicados oficiais dos Shadow Hunters.">
+
+  <style>
+    :root {
+      --bg: #111111;
+      --panel: #1b1919;
+      --wine: #721e2b;
+      --gold: #c5a56a;
+      --text: #eee8df;
+      --muted: #aaa19a;
+      --line: #393132;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topline {
+      height: 4px;
+      background: var(--wine);
+    }
+
+    header {
+      text-align: center;
+      padding: 38px 20px 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      margin: 12px 0 0;
+      font-size: clamp(30px, 6vw, 55px);
+      letter-spacing: 3px;
+      line-height: 1.2;
+    }
+
+    header h1 span { color: var(--gold); }
+
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 26px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      font: 12px Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 38px 22px;
+    }
+
+    .section-title {
+      color: var(--gold);
+      font: 12px Arial, sans-serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+
+    .featured {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--wine);
+      padding: clamp(22px, 5vw, 42px);
+      margin-bottom: 42px;
+    }
+
+    .category {
+      color: var(--gold);
+      font: 11px Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .featured h2 {
+      font-size: clamp(25px, 4vw, 39px);
+      line-height: 1.25;
+      margin: 14px 0;
+    }
+
+    .date {
+      color: var(--muted);
+      font: 12px Arial, sans-serif;
+    }
+
+    .featured p { color: #d0c8c1; }
+
+    .button {
+      display: inline-block;
+      background: var(--wine);
+      padding: 11px 18px;
+      margin-top: 10px;
+      font: 12px Arial, sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .button:hover { background: #8d2939; }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .news-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 24px;
+    }
+
+    .news-card h3 {
+      font-size: 22px;
+      line-height: 1.35;
+      margin: 12px 0;
+    }
+
+    .news-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 20px 0;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid var(--line);
+      padding: 28px 20px;
+      color: var(--muted);
+      font: 11px Arial, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    footer strong { color: var(--gold); }
+
+    @media (max-width: 500px) {
+      nav { gap: 14px; }
+      main { padding: 26px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline"></div>
+
+  <header>
+    <div class="eyebrow">Informação • Honra • Legado</div>
+    <h1>SHADOW <span>HUNTERS</span></h1>
+    <p>Jornal oficial • Notícias e comunicados</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#noticias">Notícias</a>
+    <a href="#diplomacia">Diplomacia</a>
+    <a href="#comunicados">Comunicados</a>
+  </nav>
+
+  <main id="inicio">
+    <div class="section-title">◆ Edição oficial</div>
+
+    <section class="featured">
+      <div class="category">Bem-vindo ao portal</div>
+      <h2>As notícias dos Shadow Hunters começam aqui.</h2>
+      <div class="date">PORTAL OFICIAL</div>
+      <p>
+        Este é o canal de informação dos Shadow Hunters.
+        Aqui serão publicados comunicados oficiais, registros
+        diplomáticos, eventos e notícias relevantes da organização.
+      </p>
+      <a class="button" href="#noticias">Explorar notícias</a>
+    </section>
+
+    <section id="noticias">
+      <div class="section-title">Últimas publicações</div>
+
+      <div class="news-grid">
+
+        <!-- MODELO DE NOTÍCIA: copie este bloco para adicionar notícias.
+        <article class="news-card" id="diplomacia">
+          <div class="category">Diplomacia</div>
+          <h3>Título da notícia</h3>
+          <div class="date">11 OUTUBRO 2026</div>
+          <p>Escreva aqui o resumo da notícia.</p>
+          <a class="button" href="noticias/minha-noticia.html">
+            Ler notícia
+          </a>
+        </article>
+        -->
+
+        <article class="news-card" id="comunicados">
+          <div class="category">Comunicados</div>
+          <h3>Em breve: comunicados oficiais</h3>
+          <div class="date">PORTAL OFICIAL</div>
+          <p>
+            Os comunicados da organização serão publicados
+            nesta seção assim que o portal entrar em funcionamento.
+          </p>
+        </article>
+
+        <article class="news-card">
+          <div class="category">Diplomacia</div>
+          <h3>Um espaço para relações diplomáticas</h3>
+          <div class="date">PORTAL OFICIAL</div>
+          <p>
+            Registros de reuniões, tratados, negociações e
+            relações entre organizações poderão ser apresentados aqui.
+          </p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>SHADOW HUNTERS</strong>
+    <p>Portal de notícias e comunicados oficiais</p>
+    <p>Conteúdo sujeito às regras e à narrativa do servidor de RP.</p>
+  </footer>
+</body>
+</html>
